@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Job extends Model
 {
     use HasFactory;
+
+    public function details() {
+        return $this->hasOne(JobDetail::class);
+    }
 }
