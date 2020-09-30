@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Job;
 use Illuminate\Http\Request;
+use App\Http\Resources\JobResource;
 
 class JobController extends Controller
 {
@@ -14,7 +15,9 @@ class JobController extends Controller
      */
     public function index()
     {
-        //
+        $jobs = Job::paginate(10);
+
+        return JobResource::collection($jobs);
     }
 
     /**

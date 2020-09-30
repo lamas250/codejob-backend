@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\JobController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -23,3 +25,6 @@ Route::prefix('auth')->group(function(){
     Route::get('/user', [AuthController::class, 'user'])->middleware("auth:api");
 });
 
+Route::get('/jobs', [JobController::class, 'index']);
+
+// Route::get('/jobs', 'App\Http\Controllers\JobController@index');
